@@ -2,10 +2,14 @@
   "name": "training",
   "version": "1.0.0",
   "description": "Training management software",
+  "repository": "kruemel01/training",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Fabian Kästner",
-  "license": "ISC"
+  "license": "AGPLv3",
+  "dependencies": {
+    "koa": "^1.2.2"
+  }
 }
