@@ -22,6 +22,7 @@ function setProductionEnv() {
 const express = require("express");
 
 var router = require("./router");
+var db = require("./database/db");
 
 var app = express();
 
@@ -39,15 +40,24 @@ if (process.env.NODE_ENV == "development") {
   setDevelopmentEnv();
 }
 
+_db = db.init();
 
 // Attach router to main app.
 app.use("/", router);
 
 // Start Server.
-app.listen(CONFIG.PORT, function(err) {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log("Server listening on port " + CONFIG.PORT);
-  }
+_db.then(function() {
+
+  app.listen(CONFIG.PORT, function(err) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("Server listening on port " + CONFIG.PORT);
+    }
+  });
+
+})
+.catch(function(err) {
+  console.log("Error while initializing DB:");
+  console.log(err);
 });
