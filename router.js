@@ -2,7 +2,7 @@ var express = require("express");
 var activeApis = require("./api/active");
 
 function sendIndex(req, res, next) {
-  res.sendFile(__dirname + "/app/index.html");
+  res.sendFile(__dirname + "/client_dist/index.html");
 }
 
 function loadApis(Router, ApiArray) {
@@ -20,7 +20,7 @@ var router = express.Router();
 
 loadApis(router, activeApis)
 
-router.use("/assets", express.static("app"));
+router.use("/assets", express.static("client_dist"));
 router.use(sendIndex);
 
 module.exports = router;
