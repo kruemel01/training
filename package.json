@@ -10,6 +10,6 @@
   "author": "Fabian Kästner",
   "license": "AGPLv3",
   "dependencies": {
-    "koa": "^1.2.2"
+    "express": "^4.14.0"
   }
 }
