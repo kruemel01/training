@@ -1,0 +1,11 @@
+{
+  "name": "training",
+  "version": "1.0.0",
+  "description": "Training management software",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Fabian Kästner",
+  "license": "ISC"
+}
