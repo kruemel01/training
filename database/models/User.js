@@ -1,24 +1,12 @@
-const Sequelize = require("sequelize");
 
-function User(db) {
-
-  var User = db.define("user", {
-    firstName: {
-      type: Sequelize.STRING
-    },
-    lastName: {
-      type: Sequelize.STRING
-    }
-  }, {
-    freezeTableName: true
+function User(mongoose) {
+  var UserSchema = mongoose.Schema({
+    username: String
   });
 
-  return User
-    .sync({ force: true })
-    .then(function() {
-      return User;
-    });
+  var UserModel = mongoose.model("User", UserSchema);
 
+  return UserModel;
 }
 
 module.exports = User;

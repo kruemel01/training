@@ -1,31 +1,13 @@
-const Sequelize = require("sequelize");
-
-const User = require("./models/User");
+var mongoose = require("mongoose");
 
 module.exports = {
   init() {
-    this.database = new Sequelize(
-      CONFIG.DB.DATABASE,
-      CONFIG.DB.USER,
-      CONFIG.DB.PASS,
-      {
-        host: CONFIG.DB.HOST,
-        dialect: CONFIG.DB.TYPE,
+    mongoose.connect("mongodb://localhost/training");
 
-        pool: {
-          max: CONFIG.DB.MAX_CONNECTIONS,
-          min: 0,
-          idle: CONFIG.DB.IDLE
-        }
-      }
-    );
+    this.db = mongoose.connection
 
-    _User = User(this.database);
+    this.User = require("./models/User")(mongoose);
 
-    return Promise.all([
-      _User
-    ]).then(function() {
-      this.User = _User;
-    });
+    return mongoose.connection;
   }
 }
