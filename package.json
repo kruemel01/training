@@ -11,6 +11,7 @@
   "author": "Fabian Kästner",
   "license": "AGPL-3.0",
   "dependencies": {
+    "bluebird": "^3.4.5",
     "express": "^4.14.0",
     "mongoose": "^4.5.10",
     "vue": "^1.0.26",

@@ -22,7 +22,7 @@ function setProductionEnv() {
 const express = require("express");
 
 var router = require("./router");
-var dbController = require("./database/db");
+var db = require("./database/db");
 
 var app = express();
 
@@ -40,16 +40,26 @@ if (process.env.NODE_ENV == "development") {
   setDevelopmentEnv();
 }
 
-db = dbController.init();
+// Connect to db.
+console.log("Connecting to database.")
+conn = db.connect();
 
 // Attach router to main app.
 app.use("/", router);
 
-// Start Server.
-db.once("open", function() {
+// Catch connection errors
+conn.on("error", function(err) {
+  console.log("Error while connecting to database:");
+  console.log(err);
+});
+
+// Start Server once DB connection is established
+conn.once("open", function() {
+  console.log("Database connection established.");
 
   app.listen(CONFIG.PORT, function(err) {
     if (err) {
+      console.log("Error while opening server:");
       console.log(err);
     } else {
       console.log("Server listening on port " + CONFIG.PORT);
