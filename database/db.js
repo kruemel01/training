@@ -3,7 +3,7 @@ mongoose.Promise = require("bluebird");
 
 module.exports = {
   connect() {
-    mongoose.connect("mongodb://localhost/training");
+    mongoose.connect(CONFIG.DB_CONN_STRING);
 
     this.db = mongoose.connection;
 

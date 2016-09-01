@@ -1,3 +1,11 @@
+const express = require("express");
+var bodyParser = require("body-parser");
+var passport = require("passport");
+var jwt = require("jwt-simple");
+
+var router = require("./router");
+var db = require("./database/db");
+
 
 // ============================
 
@@ -7,37 +15,44 @@ const PRODUCTION_CONFIG_PATH = "./production.config.js";
 // ============================
 
 // Load dev configuration file.
-function setDevelopmentEnv() {
+function setDevelopmentEnv(app) {
+
+  var morgan = require("morgan");
+
   console.log("Loading development configuration.");
   global.CONFIG = require(DEVELOPMENT_CONFIG_PATH);
+  app.use(morgan("dev"));
+
 }
 
 // Load production configuration file.
-function setProductionEnv() {
+function setProductionEnv(app) {
   console.log("Loading production configuration.");
   global.CONFIG = require(PRODUCTION_CONFIG_PATH);
 }
 
 // App initialization
-const express = require("express");
-
-var router = require("./router");
-var db = require("./database/db");
 
 var app = express();
 
+// Access to request params.
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+// Use passport authentication.
+app.use(passport.initialize());
 
 // Environment specification and configuration.
 console.log("Running Training in " + process.env.NODE_ENV + " environment.");
 console.log("Preparing application settings...");
 
 if (process.env.NODE_ENV == "development") {
-  setDevelopmentEnv();
+  setDevelopmentEnv(app);
 } else if (process.env.NODE_ENV == "production") {
-  setProductionEnv();
+  setProductionEnv(app);
 } else {
   console.log("ERROR: NODE_ENV is not correctly specified. Assuming development environment.");
-  setDevelopmentEnv();
+  setDevelopmentEnv(app);
 }
 
 // Connect to db.
