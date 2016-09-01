@@ -6,5 +6,7 @@ module.exports = {
   DB_CONN_STRING: "mongodb://localhost/training",
 
   // IMPORTANT: Don't forget to change the secret.
-  SECRET: "superAwesomeSecret"
+  SECRET: "superAwesomeSecret",
+
+  PRETTY_JSON: true
 }

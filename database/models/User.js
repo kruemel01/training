@@ -20,7 +20,7 @@ function User(mongoose) {
         if (err) {
           return next(err);
         }
-        bcrypt.hash(user.passwdHash, salt, function(err, hash) {
+        bcrypt.hash(user.passwdHash, salt, function() {}, function(err, hash) {
           if (err) {
             return next(err);
           }
@@ -39,7 +39,7 @@ function User(mongoose) {
         return cb(err);
       }
       cb(null, isMatch);
-    })
+    });
   }
 
   var UserModel = mongoose.model("User", UserSchema);

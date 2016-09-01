@@ -21,6 +21,6 @@ var router = express.Router();
 loadApis(router, activeApis)
 
 router.use("/assets", express.static("client_dist"));
-router.use(sendIndex);
+router.use(/\/((?!api\/).)*/, sendIndex);
 
 module.exports = router;

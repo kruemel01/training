@@ -1,7 +1,7 @@
 const express = require("express");
 var bodyParser = require("body-parser");
 var passport = require("passport");
-var jwt = require("jwt-simple");
+
 
 var router = require("./router");
 var db = require("./database/db");
