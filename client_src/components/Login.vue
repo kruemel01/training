@@ -1,11 +1,12 @@
-<style>
-  .message {
-    color: red;
+<style scoped>
+  h1 {
+    color: #asdfef
   }
 </style>
 
 <template>
-  <div class="message">{{ msg }}</div>
+  <h1>Manage your trainings.</h1>
+  <div class="loader"></div>
 </template>
 
 <script>

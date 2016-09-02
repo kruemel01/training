@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import App from "./components/App.vue";
+import Login from "./components/Login.vue";
 
 Vue.use(VueRouter);
 
@@ -14,4 +14,4 @@ router.map({
   }
 });
 
-router.start(App, "#app");
+router.start(Login, "#app");
