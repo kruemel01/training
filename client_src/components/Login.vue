@@ -1,11 +1,11 @@
 <style scoped>
-  h1 {
-    color: #asdfef
+  .welcome {
+
   }
 </style>
 
 <template>
-  <h1>Manage your trainings.</h1>
+  <h1 class="welcome">Manage your trainings.</h1>
   <div class="loader"></div>
 </template>
 
