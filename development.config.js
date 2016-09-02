@@ -3,7 +3,7 @@ module.exports = {
   // Application server port.
   PORT: 3000,
 
-  DB_CONN_STRING: "mongodb://localhost/training",
+  DB_CONN_STRING: "mongodb://127.0.0.1/training",
 
   // IMPORTANT: Don't forget to change the secret.
   SECRET: "superAwesomeSecret",
