@@ -103,7 +103,7 @@
 	  "/dash": {
 	    component: _Login2.default
 	  },
-	  "/*": {
+	  "*": {
 	    component: _NotFound2.default
 	  }
 	});
@@ -17717,13 +17717,116 @@
 
 /***/ },
 /* 89 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
+	__webpack_require__(94)
+	__vue_script__ = __webpack_require__(92)
+	__vue_template__ = __webpack_require__(96)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "C:\\Users\\Fabian\\Documents\\Privat\\training\\client_src\\components\\NotFound.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
 
+/***/ },
+/* 90 */,
+/* 91 */,
+/* 92 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	// <style scoped>
+	// .wrap {
+	//   position: absolute;
+	//   height: 400px;
+	//   width: 100%;
+	//   top: 50%;
+	//   transform: translateY(-50%);
+	//   text-align: center;
+	// }
+	// h1 {
+	//   font-size: 10em;
+	//   font-weight: 300;
+	//   margin-top: 0%;
+	// }
+	// p {
+	//   font-weight: 600;
+	//   color: rgba(150,150,150,1);
+	// }
+	// </style>
+	//
+	// <template>
+	//   <div class="wrap">
+	//     <h1>404</h1>
+	//     <p>Seems like this page was not found.</p>
+	//   </div>
+	// </template>
+	//
+	// <script>
+	exports.default = {};
+	// </script>
+	//
+
+/***/ },
+/* 93 */,
+/* 94 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(95);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(8)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-0605e9d2&file=NotFound.vue&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./NotFound.vue", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-0605e9d2&file=NotFound.vue&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./NotFound.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 95 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(7)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "\r\n.wrap[_v-0605e9d2] {\r\n  position: absolute;\r\n  height: 400px;\r\n  width: 100%;\r\n  top: 50%;\r\n  -webkit-transform: translateY(-50%);\r\n          transform: translateY(-50%);\r\n  text-align: center;\r\n}\r\nh1[_v-0605e9d2] {\r\n  font-size: 10em;\r\n  font-weight: 300;\r\n  margin-top: 0%;\r\n}\r\np[_v-0605e9d2] {\r\n  font-weight: 600;\r\n  color: rgba(150,150,150,1);\r\n}\r\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 96 */
+/***/ function(module, exports) {
+
+	module.exports = "\n  <div class=\"wrap\" _v-0605e9d2=\"\">\n    <h1 _v-0605e9d2=\"\">404</h1>\n    <p _v-0605e9d2=\"\">Seems like this page was not found.</p>\n  </div>\n";
 
 /***/ }
 /******/ ]);

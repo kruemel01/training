@@ -30,7 +30,7 @@ router.map({
   "/dash": {
     component: Login
   },
-  "/*": {
+  "*": {
     component: NotFound
   }
 });
