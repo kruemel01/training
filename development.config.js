@@ -1,5 +1,7 @@
 module.exports = {
 
+  ROOT: __dirname,
+
   // Application server port.
   PORT: 3000,
 

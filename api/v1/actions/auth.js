@@ -1,5 +1,6 @@
 var jwt = require("jwt-simple");
-var db = require("../../../database/db");
+var db = require(CONFIG.ROOT + "/database/db");
+var generateToken = require(CONFIG.ROOT + "/token").generateToken;
 
 function AuthenticateRequest(req, res) {
   if (!req.body.username || !req.body.password) {
@@ -19,11 +20,10 @@ function AuthenticateRequest(req, res) {
         return res.status(500).json({ success: false, msg: "Internal Server Error (Password Validation)" });
       }
       if (isMatch) {
-        var token = jwt.encode(user, CONFIG.SECRET);
         res.json({
           success: true,
           payload: {
-            token: "JWT " + token
+            token: generateToken(user)
           }
         });
       } else {

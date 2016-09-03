@@ -2,11 +2,6 @@ const express = require("express");
 var bodyParser = require("body-parser");
 var passport = require("passport");
 
-
-var router = require("./router");
-var db = require("./database/db");
-
-
 // ============================
 
 const DEVELOPMENT_CONFIG_PATH = "./development.config.js";
@@ -35,13 +30,6 @@ function setProductionEnv(app) {
 
 var app = express();
 
-// Access to request params.
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-
-// Use passport authentication.
-app.use(passport.initialize());
-
 // Environment specification and configuration.
 console.log("Running Training in " + process.env.NODE_ENV + " environment.");
 console.log("Preparing application settings...");
@@ -55,11 +43,40 @@ if (process.env.NODE_ENV == "development") {
   setDevelopmentEnv(app);
 }
 
+global.CONFIG.ROOT = __dirname;
+
+// Access to request params.
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+// Use passport authentication.
+app.use(passport.initialize());
+require("./jwtStrategy")(passport);
+
+module.exports = { app, passport }
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Setup done, starting server:
+
+
 // Connect to db.
 console.log("Connecting to database.")
+var db = require("./database/db");
 conn = db.connect();
 
 // Attach router to main app.
+var router = require("./router");
 app.use("/", router);
 
 // Catch connection errors
@@ -68,7 +85,7 @@ conn.on("error", function(err) {
   console.log(err);
 });
 
-// Start Server once DB connection is established
+// Start listening once DB connection is established
 conn.once("open", function() {
   console.log("Database connection established.");
 
