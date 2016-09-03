@@ -13,6 +13,15 @@ export default {
 
   refreshToken(token) {
     // TODO: write unit test
-    return Vue.http.post("/")
+    return Vue.http.post("/", {}, {
+      Authorization: token
+    }).then((response) => {
+      var res = response.json();
+      if (res.success && res.payload && res.payload.token) {
+        return res.payload.token;
+      } else {
+        return Promise.reject("Invalid token");
+      }
+    });
   }
 }

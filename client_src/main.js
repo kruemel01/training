@@ -32,7 +32,7 @@ router.start(App, "#app");
 var storedToken = getStoredToken();
 
 if (storedToken) {
-  refreshToken(storedToken);
+  refreshToken(storedToken).then((newToken))
 } else {
   router.go("/login");
 }
