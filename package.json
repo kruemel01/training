@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "set NODE_ENV=development&& nodemon app.js",
     "production": "set NODE_ENV=production&& nodemon app.js",
-    "build": "webpack"
+    "build": "webpack",
+    "build:watch": "webpack --watch"
   },
   "author": "Fabian Kästner",
   "license": "AGPL-3.0",

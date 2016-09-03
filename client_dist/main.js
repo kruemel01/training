@@ -13063,9 +13063,9 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(5)
+	__webpack_require__(16)
 	__vue_script__ = __webpack_require__(9)
-	__vue_template__ = __webpack_require__(10)
+	__vue_template__ = __webpack_require__(18)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
@@ -13082,46 +13082,8 @@
 	})()}
 
 /***/ },
-/* 5 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(6);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(8)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-12cf2e56&file=Login.vue&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Login.vue", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-12cf2e56&file=Login.vue&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Login.vue");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 6 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(7)();
-	// imports
-
-
-	// module
-	exports.push([module.id, "\r\n  h1[_v-12cf2e56] {\r\n    color: #asdfef\r\n  }\r\n", ""]);
-
-	// exports
-
-
-/***/ },
+/* 5 */,
+/* 6 */,
 /* 7 */
 /***/ function(module, exports) {
 
@@ -13438,14 +13400,14 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	// <style scoped>
-	//   h1 {
-	//     color: #asdfef
+	// <style>
+	//   .welcome {
+	//     color: #asdfaf;
 	//   }
 	// </style>
 	//
 	// <template>
-	//   <h1>Manage your trainings.</h1>
+	//   <h1 class="welcome">Manage your trainings.</h1>
 	//   <div class="loader"></div>
 	// </template>
 	//
@@ -13461,12 +13423,7 @@
 	//
 
 /***/ },
-/* 10 */
-/***/ function(module, exports) {
-
-	module.exports = "\n  <h1 _v-12cf2e56=\"\">Manage your trainings.</h1>\n  <div class=\"loader\" _v-12cf2e56=\"\"></div>\n";
-
-/***/ },
+/* 10 */,
 /* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -13556,6 +13513,52 @@
 /***/ function(module, exports) {
 
 	module.exports = "\n  <router-view _v-2db4ce4e=\"\"></router-view>\n";
+
+/***/ },
+/* 16 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(17);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(8)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-12cf2e56&file=Login.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Login.vue", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-12cf2e56&file=Login.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Login.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 17 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(7)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "\r\n  .welcome {\r\n    color: #asdfaf;\r\n  }\r\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 18 */
+/***/ function(module, exports) {
+
+	module.exports = "\r\n  <h1 class=\"welcome\">Manage your trainings.</h1>\r\n  <div class=\"loader\"></div>\r\n";
 
 /***/ }
 /******/ ]);

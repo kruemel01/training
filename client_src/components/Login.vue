@@ -1,6 +1,6 @@
-<style scoped>
+<style>
   .welcome {
-
+    color: #asdfaf;
   }
 </style>
 
