@@ -13063,7 +13063,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(19)
+	__webpack_require__(22)
 	__vue_script__ = __webpack_require__(9)
 	__vue_template__ = __webpack_require__(21)
 	module.exports = __vue_script__ || {}
@@ -13400,9 +13400,9 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	// <style scoped>
+	// <style lang="sass" scoped>
 	//   h1 {
-	//     color: #9C27B0;
+	//     color: rgba(156,39,176,1);
 	//     font-weight: 300;
 	//     text-align: center;
 	//   }
@@ -13413,14 +13413,72 @@
 	//     top: 50%;
 	//     transform: translate(0%, -50%);
 	//   }
+	//   .form {
+	//     position: relative;
+	//     max-width: 300px;
+	//     width: 90%;
+	//     left: 50%;
+	//     transform: translate(-50%, 0%);
+	//     input {
+	//       box-sizing: border-box;
+	//       width: 100%;
+	//       border: 1px solid rgba(100,100,100,0.2);
+	//       font-family: Raleway, sans-serif;
+	//       font-size: 1.2em;
+	//       font-weight: 400;
+	//       padding: 3%;
+	//       margin: 1%;
+	//       transition: all 0.2s;
+	//       &:focus {
+	//         outline: none;
+	//         border-color: rgba(100,100,100,0.4);
+	//       }
+	//     }
+	//     a {
+	//       display: inline-block;
+	//       width: 70%;
+	//       font-size: 0.7em;
+	//       text-align: center;
+	//       font-weight: 600;
+	//       float: left;
+	//       text-decoration: none;
+	//       padding: 5px 0%;
+	//     }
+	//     button {
+	//       width: 30%;
+	//       height: 43px;
+	//       margin-top: 2%;
+	//       padding: 3%;
+	//       border: 1px solid rgba(100,100,100,0.2);
+	//       background-color: rgba(255,255,255,0);
+	//       text-transform: uppercase;
+	//       color: rgba(156,39,176,1);
+	//       font-weight: 600;
+	//       cursor: pointer;
+	//       transition: all 0.2s;
+	//       &:hover {
+	//         border-width: 5px;
+	//         border-color: rgba(100,100,100,0.4);
+	//       }
+	//       &:focus {
+	//         outline: none;
+	//       }
+	//       &:active {
+	//         border-color: rgba(156,39,176,1);
+	//       }
+	//     }
+	//   }
 	// </style>
 	//
 	// <template>
 	//   <div class="wrap">
 	//     <h1 class="welcome">Manage your trainings.</h1>
-	//     <form class="" action="index.html" method="post">
-	//       <input type="text" name="username" value="">
-	//     </form>
+	//     <div class="form">
+	//       <input type="text" v-model="username" placeholder="Username">
+	//       <input type="password" v-model="password" placeholder="Password">
+	//       <a v-link="'/'">Don't have an account yet?</a>
+	//       <button type="button" v-on:click="">Login</button>
+	//     </div>
 	//     <div class="loader"></div>
 	//   </div>
 	// </template>
@@ -13531,13 +13589,21 @@
 	module.exports = "\r\n  <router-view></router-view>\r\n";
 
 /***/ },
-/* 19 */
+/* 19 */,
+/* 20 */,
+/* 21 */
+/***/ function(module, exports) {
+
+	module.exports = "\n  <div class=\"wrap\" _v-70330ff1=\"\">\n    <h1 class=\"welcome\" _v-70330ff1=\"\">Manage your trainings.</h1>\n    <div class=\"form\" _v-70330ff1=\"\">\n      <input type=\"text\" v-model=\"username\" placeholder=\"Username\" _v-70330ff1=\"\">\n      <input type=\"password\" v-model=\"password\" placeholder=\"Password\" _v-70330ff1=\"\">\n      <a v-link=\"'/'\" _v-70330ff1=\"\">Don't have an account yet?</a>\n      <button type=\"button\" v-on:click=\"\" _v-70330ff1=\"\">Login</button>\n    </div>\n    <div class=\"loader\" _v-70330ff1=\"\"></div>\n  </div>\n";
+
+/***/ },
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(20);
+	var content = __webpack_require__(23);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(8)(content, {});
@@ -13546,8 +13612,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-70330ff1&file=Login.vue&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Login.vue", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-70330ff1&file=Login.vue&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Login.vue");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-70330ff1&file=Login.vue&scoped=true!./../../node_modules/sass-loader/index.js!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Login.vue", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-70330ff1&file=Login.vue&scoped=true!./../../node_modules/sass-loader/index.js!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Login.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -13557,7 +13623,7 @@
 	}
 
 /***/ },
-/* 20 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(7)();
@@ -13565,16 +13631,10 @@
 
 
 	// module
-	exports.push([module.id, "\r\n  h1[_v-70330ff1] {\r\n    color: #9C27B0;\r\n    font-weight: 300;\r\n    text-align: center;\r\n  }\r\n  .wrap[_v-70330ff1] {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 200px;\r\n    top: 50%;\r\n    -webkit-transform: translate(0%, -50%);\r\n            transform: translate(0%, -50%);\r\n  }\r\n", ""]);
+	exports.push([module.id, "h1[_v-70330ff1] {\n  color: #9c27b0;\n  font-weight: 300;\n  text-align: center; }\n\n.wrap[_v-70330ff1] {\n  position: absolute;\n  width: 100%;\n  height: 200px;\n  top: 50%;\n  -webkit-transform: translate(0%, -50%);\n          transform: translate(0%, -50%); }\n\n.form[_v-70330ff1] {\n  position: relative;\n  max-width: 300px;\n  width: 90%;\n  left: 50%;\n  -webkit-transform: translate(-50%, 0%);\n          transform: translate(-50%, 0%); }\n  .form input[_v-70330ff1] {\n    box-sizing: border-box;\n    width: 100%;\n    border: 1px solid rgba(100, 100, 100, 0.2);\n    font-family: Raleway, sans-serif;\n    font-size: 1.2em;\n    font-weight: 400;\n    padding: 3%;\n    margin: 1%;\n    -webkit-transition: all 0.2s;\n    transition: all 0.2s; }\n    .form input[_v-70330ff1]:focus {\n      outline: none;\n      border-color: rgba(100, 100, 100, 0.4); }\n  .form a[_v-70330ff1] {\n    display: inline-block;\n    width: 70%;\n    font-size: 0.7em;\n    text-align: center;\n    font-weight: 600;\n    float: left;\n    text-decoration: none;\n    padding: 5px 0%; }\n  .form button[_v-70330ff1] {\n    width: 30%;\n    height: 43px;\n    margin-top: 2%;\n    padding: 3%;\n    border: 1px solid rgba(100, 100, 100, 0.2);\n    background-color: rgba(255, 255, 255, 0);\n    text-transform: uppercase;\n    color: #9c27b0;\n    font-weight: 600;\n    cursor: pointer;\n    -webkit-transition: all 0.2s;\n    transition: all 0.2s; }\n    .form button[_v-70330ff1]:hover {\n      border-width: 5px;\n      border-color: rgba(100, 100, 100, 0.4); }\n    .form button[_v-70330ff1]:focus {\n      outline: none; }\n    .form button[_v-70330ff1]:active {\n      border-color: #9c27b0; }\n", ""]);
 
 	// exports
 
-
-/***/ },
-/* 21 */
-/***/ function(module, exports) {
-
-	module.exports = "\n  <div class=\"wrap\" _v-70330ff1=\"\">\n    <h1 class=\"welcome\" _v-70330ff1=\"\">Manage your trainings.</h1>\n    <form class=\"\" action=\"index.html\" method=\"post\" _v-70330ff1=\"\">\n      <input type=\"text\" name=\"username\" value=\"\" _v-70330ff1=\"\">\n    </form>\n    <div class=\"loader\" _v-70330ff1=\"\"></div>\n  </div>\n";
 
 /***/ }
 /******/ ]);
