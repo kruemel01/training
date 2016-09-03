@@ -6,6 +6,7 @@ export default {
     // TODO: write unit test
     if (localStorage.Token) {
       dispatch("SET_TOKEN", localStorage.Token);
+      Vue.http.headers.common["Authorization"] = localStorage.Token;
       return localStorage.Token;
     } else {
       return null;
@@ -20,6 +21,8 @@ export default {
       var res = response.json();
       if (res.success && res.payload && res.payload.token) {
         dispatch("SET_TOKEN", res.payload.token);
+        localStorage.Token = res.payload.token;
+        Vue.http.headers.common["Authorization"] = res.payload.token;
         return res.payload.token;
       } else {
         return Promise.reject("Invalid token");
@@ -35,6 +38,8 @@ export default {
       var res = response.json();
       if (res.success && res.payload && res.payload.token) {
         dispatch("SET_TOKEN", res.payload.token);
+        localStorage.Token = res.payload.token;
+        Vue.http.headers.common["Authorization"] = res.payload.token;
         return res.payload.token;
       } else {
         return Promise.reject("Invalid credentials.");

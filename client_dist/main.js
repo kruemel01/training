@@ -74,6 +74,10 @@
 
 	var _App2 = _interopRequireDefault(_App);
 
+	var _NotFound = __webpack_require__(89);
+
+	var _NotFound2 = _interopRequireDefault(_NotFound);
+
 	var _actions = __webpack_require__(31);
 
 	var _actions2 = _interopRequireDefault(_actions);
@@ -98,6 +102,9 @@
 	  },
 	  "/dash": {
 	    component: _Login2.default
+	  },
+	  "/*": {
+	    component: _NotFound2.default
 	  }
 	});
 
@@ -106,9 +113,7 @@
 	var storedToken = _actions2.default.getStoredToken(_store2.default);
 
 	if (storedToken) {
-	  _actions2.default.refreshToken(_store2.default, storedToken).then(function (newToken) {
-	    router.go("/dash");
-	  });
+	  _actions2.default.refreshToken(_store2.default, storedToken).then(function (newToken) {});
 	} else {
 	  router.go("/login");
 	}
@@ -13456,7 +13461,7 @@
 	//     position: absolute;
 	//     width: 100%;
 	//     height: 200px;
-	//     top: 50%;
+	//     top: 45%;
 	//     transform: translate(0%, -50%);
 	//   }
 	//   .form {
@@ -13761,7 +13766,7 @@
 
 
 	// module
-	exports.push([module.id, "h1[_v-70330ff1] {\n  color: #9c27b0;\n  font-weight: 300;\n  text-align: center; }\n\n.wrap[_v-70330ff1] {\n  position: absolute;\n  width: 100%;\n  height: 200px;\n  top: 50%;\n  -webkit-transform: translate(0%, -50%);\n          transform: translate(0%, -50%); }\n\n.form[_v-70330ff1] {\n  position: relative;\n  max-width: 300px;\n  width: 90%;\n  left: 50%;\n  -webkit-transform: translate(-50%, 0%);\n          transform: translate(-50%, 0%); }\n  .form span[_v-70330ff1] {\n    display: none;\n    font-size: 0.8em;\n    font-weight: 600;\n    color: #d81b60;\n    text-align: center;\n    margin-top: 10px;\n    width: 100%; }\n    .form span.visible[_v-70330ff1] {\n      display: block; }\n  .form input[_v-70330ff1] {\n    box-sizing: border-box;\n    width: 100%;\n    border: 1px solid rgba(100, 100, 100, 0.2);\n    font-family: Raleway, sans-serif;\n    font-size: 1.2em;\n    font-weight: 400;\n    padding: 3%;\n    margin: 1% 0%;\n    -webkit-transition: all 0.2s;\n    transition: all 0.2s; }\n    .form input[_v-70330ff1]:focus {\n      outline: none;\n      border-color: rgba(100, 100, 100, 0.4); }\n  .form a[_v-70330ff1] {\n    display: inline-block;\n    width: 70%;\n    font-size: 0.7em;\n    text-align: center;\n    font-weight: 600;\n    float: left;\n    text-decoration: none;\n    padding: 5px 0%; }\n  .form button[_v-70330ff1] {\n    width: 30%;\n    height: 43px;\n    padding: 3%;\n    margin: 1% 0%;\n    border: 1px solid rgba(100, 100, 100, 0.2);\n    background-color: rgba(255, 255, 255, 0);\n    text-transform: uppercase;\n    color: #9c27b0;\n    font-weight: 600;\n    cursor: pointer;\n    -webkit-transition: all 0.2s;\n    transition: all 0.2s; }\n    .form button[_v-70330ff1]:hover {\n      border-width: 5px;\n      border-color: rgba(100, 100, 100, 0.4); }\n    .form button[_v-70330ff1]:focus {\n      outline: none; }\n    .form button[_v-70330ff1]:active {\n      border-color: #9c27b0; }\n    .form button.disabled[_v-70330ff1] {\n      color: #c8c8c8;\n      cursor: default; }\n      .form button.disabled[_v-70330ff1]:hover {\n        border-width: 1px;\n        border-color: rgba(100, 100, 100, 0.2); }\n", ""]);
+	exports.push([module.id, "h1[_v-70330ff1] {\n  color: #9c27b0;\n  font-weight: 300;\n  text-align: center; }\n\n.wrap[_v-70330ff1] {\n  position: absolute;\n  width: 100%;\n  height: 200px;\n  top: 45%;\n  -webkit-transform: translate(0%, -50%);\n          transform: translate(0%, -50%); }\n\n.form[_v-70330ff1] {\n  position: relative;\n  max-width: 300px;\n  width: 90%;\n  left: 50%;\n  -webkit-transform: translate(-50%, 0%);\n          transform: translate(-50%, 0%); }\n  .form span[_v-70330ff1] {\n    display: none;\n    font-size: 0.8em;\n    font-weight: 600;\n    color: #d81b60;\n    text-align: center;\n    margin-top: 10px;\n    width: 100%; }\n    .form span.visible[_v-70330ff1] {\n      display: block; }\n  .form input[_v-70330ff1] {\n    box-sizing: border-box;\n    width: 100%;\n    border: 1px solid rgba(100, 100, 100, 0.2);\n    font-family: Raleway, sans-serif;\n    font-size: 1.2em;\n    font-weight: 400;\n    padding: 3%;\n    margin: 1% 0%;\n    -webkit-transition: all 0.2s;\n    transition: all 0.2s; }\n    .form input[_v-70330ff1]:focus {\n      outline: none;\n      border-color: rgba(100, 100, 100, 0.4); }\n  .form a[_v-70330ff1] {\n    display: inline-block;\n    width: 70%;\n    font-size: 0.7em;\n    text-align: center;\n    font-weight: 600;\n    float: left;\n    text-decoration: none;\n    padding: 5px 0%; }\n  .form button[_v-70330ff1] {\n    width: 30%;\n    height: 43px;\n    padding: 3%;\n    margin: 1% 0%;\n    border: 1px solid rgba(100, 100, 100, 0.2);\n    background-color: rgba(255, 255, 255, 0);\n    text-transform: uppercase;\n    color: #9c27b0;\n    font-weight: 600;\n    cursor: pointer;\n    -webkit-transition: all 0.2s;\n    transition: all 0.2s; }\n    .form button[_v-70330ff1]:hover {\n      border-width: 5px;\n      border-color: rgba(100, 100, 100, 0.4); }\n    .form button[_v-70330ff1]:focus {\n      outline: none; }\n    .form button[_v-70330ff1]:active {\n      border-color: #9c27b0; }\n    .form button.disabled[_v-70330ff1] {\n      color: #c8c8c8;\n      cursor: default; }\n      .form button.disabled[_v-70330ff1]:hover {\n        border-width: 1px;\n        border-color: rgba(100, 100, 100, 0.2); }\n", ""]);
 
 	// exports
 
@@ -14649,6 +14654,7 @@
 	    // TODO: write unit test
 	    if (localStorage.Token) {
 	      dispatch("SET_TOKEN", localStorage.Token);
+	      _vue2.default.http.headers.common["Authorization"] = localStorage.Token;
 	      return localStorage.Token;
 	    } else {
 	      return null;
@@ -14664,6 +14670,8 @@
 	      var res = response.json();
 	      if (res.success && res.payload && res.payload.token) {
 	        dispatch("SET_TOKEN", res.payload.token);
+	        localStorage.Token = res.payload.token;
+	        _vue2.default.http.headers.common["Authorization"] = res.payload.token;
 	        return res.payload.token;
 	      } else {
 	        return _promise2.default.reject("Invalid token");
@@ -14680,6 +14688,8 @@
 	      var res = response.json();
 	      if (res.success && res.payload && res.payload.token) {
 	        dispatch("SET_TOKEN", res.payload.token);
+	        localStorage.Token = res.payload.token;
+	        _vue2.default.http.headers.common["Authorization"] = res.payload.token;
 	        return res.payload.token;
 	      } else {
 	        return _promise2.default.reject("Invalid credentials.");
@@ -17703,6 +17713,16 @@
 	  return NProgress;
 	});
 
+
+
+/***/ },
+/* 89 */
+/***/ function(module, exports) {
+
+	var __vue_script__, __vue_template__
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
 
 
 /***/ }

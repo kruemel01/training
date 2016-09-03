@@ -8,7 +8,7 @@
     position: absolute;
     width: 100%;
     height: 200px;
-    top: 50%;
+    top: 45%;
     transform: translate(0%, -50%);
   }
   .form {

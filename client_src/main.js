@@ -7,6 +7,8 @@ import store from "./store";
 import Loading from "./components/Loading.vue";
 import Login from "./components/Login.vue";
 import App from "./components/App.vue";
+import NotFound from "./components/NotFound.vue";
+
 import actions from "./actions";
 
 Vue.use(VueRouter);
@@ -27,6 +29,9 @@ router.map({
   },
   "/dash": {
     component: Login
+  },
+  "/*": {
+    component: NotFound
   }
 });
 
@@ -36,7 +41,6 @@ var storedToken = actions.getStoredToken(store);
 
 if (storedToken) {
   actions.refreshToken(store, storedToken).then((newToken) => {
-    router.go("/dash")
   });
 } else {
   router.go("/login");
