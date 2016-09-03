@@ -16,7 +16,7 @@ module.exports = {
       if (err) {
         return cb(err, false);
       }
-      if (user) {
+      if (user && token.expiry > Date.now()) {
         cb(null, user);
       } else {
         cb(null, false);
@@ -24,6 +24,6 @@ module.exports = {
     });
   },
   decodeToken(token) {
-    return jwt.decode(token, CONFIG.SECRET);
+    return jwt.decode(token.split(" ")[1], CONFIG.SECRET);
   }
 }
