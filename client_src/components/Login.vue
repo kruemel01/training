@@ -17,6 +17,18 @@
     width: 90%;
     left: 50%;
     transform: translate(-50%, 0%);
+    span {
+      display: none;
+      font-size: 0.8em;
+      font-weight: 600;
+      color: rgba(216,27,96,1);
+      text-align: center;
+      margin-top: 10px;
+      width: 100%;
+      &.visible {
+        display: block;
+      }
+    }
     input {
       box-sizing: border-box;
       width: 100%;
@@ -25,7 +37,7 @@
       font-size: 1.2em;
       font-weight: 400;
       padding: 3%;
-      margin: 1%;
+      margin: 1% 0%;
       transition: all 0.2s;
       &:focus {
         outline: none;
@@ -45,8 +57,8 @@
     button {
       width: 30%;
       height: 43px;
-      margin-top: 2%;
       padding: 3%;
+      margin: 1% 0%;
       border: 1px solid rgba(100,100,100,0.2);
       background-color: rgba(255,255,255,0);
       text-transform: uppercase;
@@ -80,23 +92,43 @@
   <div class="wrap">
     <h1 class="welcome">Manage your trainings.</h1>
     <div class="form">
-      <input type="text" v-model="username" placeholder="Username">
-      <input type="password" v-model="password" placeholder="Password">
+      <input type="text" v-model="username" placeholder="Username" v-bind:class="{ 'err': errUsername }">
+      <input type="password" v-model="password" placeholder="Password" v-bind:class="{ 'err': errPassword }">
       <a v-link="'/'">Don't have an account yet?</a>
       <button type="button" v-bind:class="{ 'disabled': submitted }" v-on:click="login(username, password)">Login</button>
+      <span v-bind:class="{ 'visible': errmsg }">{{ errmsg }}</span>
     </div>
     <div class="loader"></div>
   </div>
 </template>
 
 <script>
+  import nprogress from "nprogress-npm";
   import actions from "../actions";
   export default {
     data () {
       return {
         username: null,
         password: null,
+        errUsername: false,
+        errPassword: false,
+        errInvalidCred: false,
         submitted: false
+      }
+    },
+    computed: {
+      errmsg() {
+        if (this.errUsername && this.errPassword) {
+          return "Please fill out the username and password fields.";
+        } else if (this.errUsername) {
+          return "Please fill out the username field.";
+        } else if (this.errPassword) {
+          return "Please fill out the password field.";
+        } else if (this.errInvalidCred) {
+          return "Invalid username or password.";
+        } else {
+          return false;
+        }
       }
     },
     vuex: {
@@ -104,7 +136,24 @@
         login(store) {
           if (!this.submitted && this.username && this.password) {
             this.submitted = true;
-            actions.login(store, this.username, this.password);
+            this.errInvalidCred = false;
+            this.errUsername = false;
+            this.errPassword = false;
+            nprogress.start();
+            actions.login(store, this.username, this.password).then(
+              (token) => {
+                nprogress.done();
+                this.$router.go("/dash");
+              }
+            ).catch((err) => {
+              this.errInvalidCred = true;
+              this.password = "";
+              this.submitted = false;
+              nprogress.done();
+            });
+          } else if (!this.submitted) {
+            this.errUsername = !this.username;
+            this.errPassword = !this.password
           }
         }
       }

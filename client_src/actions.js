@@ -14,7 +14,7 @@ export default {
 
   refreshToken({ dispatch }, token) {
     // TODO: write unit test
-    return Vue.http.post("/", {}, {
+    return Vue.http.post("auth/token", {}, {
       Authorization: token
     }).then((response) => {
       var res = response.json();
@@ -27,7 +27,18 @@ export default {
     });
   },
 
-  login({ dispatch }, user, pass) {
-    console.log("Credentials: " + user + ", " + pass);
+  login({ dispatch }, username, password) {
+    return Vue.http.post("auth", {
+      username,
+      password
+    }).then((response) => {
+      var res = response.json();
+      if (res.success && res.payload && res.payload.token) {
+        dispatch("SET_TOKEN", res.payload.token);
+        return res.payload.token;
+      } else {
+        return Promise.reject("Invalid credentials.");
+      }
+    });
   }
 }
