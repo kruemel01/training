@@ -1,6 +1,18 @@
 import Vue from "vue";
 
 export default {
+  init (store, router) {
+    var storedToken = this.getStoredToken(store);
+
+    if (storedToken) {
+      this.refreshToken(store, storedToken).then((newToken) => {
+        if (router.)
+      });
+    } else {
+      router.go("/login");
+    }
+  },
+
   getStoredToken ({ dispatch }) {
     // TODO: check if localstorage is usable
     // TODO: write unit test

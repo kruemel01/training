@@ -37,11 +37,4 @@ router.map({
 
 router.start(App, "#app");
 
-var storedToken = actions.getStoredToken(store);
-
-if (storedToken) {
-  actions.refreshToken(store, storedToken).then((newToken) => {
-  });
-} else {
-  router.go("/login");
-}
+actions.init(store, router);
