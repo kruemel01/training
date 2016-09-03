@@ -58,6 +58,10 @@
 
 	var _vueResource2 = _interopRequireDefault(_vueResource);
 
+	var _store = __webpack_require__(24);
+
+	var _store2 = _interopRequireDefault(_store);
+
 	var _Loading = __webpack_require__(26);
 
 	var _Loading2 = _interopRequireDefault(_Loading);
@@ -71,6 +75,8 @@
 	var _App2 = _interopRequireDefault(_App);
 
 	var _actions = __webpack_require__(31);
+
+	var _actions2 = _interopRequireDefault(_actions);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -89,15 +95,20 @@
 	  },
 	  "/login": {
 	    component: _Login2.default
+	  },
+	  "/dash": {
+	    component: _Login2.default
 	  }
 	});
 
 	router.start(_App2.default, "#app");
 
-	var storedToken = (0, _actions.getStoredToken)();
+	var storedToken = _actions2.default.getStoredToken(_store2.default);
 
 	if (storedToken) {
-	  refreshToken(storedToken).then(newToken);
+	  _actions2.default.refreshToken(_store2.default, storedToken).then(function (newToken) {
+	    router.go("/dash");
+	  });
 	} else {
 	  router.go("/login");
 	}
@@ -13417,13 +13428,42 @@
 
 /***/ },
 /* 9 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _actions = __webpack_require__(31);
+
+	var _actions2 = _interopRequireDefault(_actions);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = {
+	  data: function data() {
+	    return {
+	      username: null,
+	      password: null,
+	      submitted: false
+	    };
+	  },
+
+	  vuex: {
+	    actions: {
+	      login: function login(store) {
+	        if (!this.submitted && this.username && this.password) {
+	          this.submitted = true;
+	          _actions2.default.login(store, this.username, this.password);
+	        }
+	      }
+	    }
+	  }
+	};
+	// </script>
+	//
 	// <style lang="sass" scoped>
 	//   h1 {
 	//     color: rgba(156,39,176,1);
@@ -13490,6 +13530,14 @@
 	//       &:active {
 	//         border-color: rgba(156,39,176,1);
 	//       }
+	//       &.disabled {
+	//         color: rgba(200,200,200,1);
+	//         cursor: default;
+	//         &:hover {
+	//           border-width: 1px;
+	//           border-color: rgba(100,100,100,0.2);
+	//         }
+	//       }
 	//     }
 	//   }
 	// </style>
@@ -13501,16 +13549,13 @@
 	//       <input type="text" v-model="username" placeholder="Username">
 	//       <input type="password" v-model="password" placeholder="Password">
 	//       <a v-link="'/'">Don't have an account yet?</a>
-	//       <button type="button" v-on:click="">Login</button>
+	//       <button type="button" v-bind:class="{ 'disabled': submitted }" v-on:click="login(username, password)">Login</button>
 	//     </div>
 	//     <div class="loader"></div>
 	//   </div>
 	// </template>
 	//
 	// <script>
-	exports.default = {};
-	// </script>
-	//
 
 /***/ },
 /* 10 */,
@@ -13627,7 +13672,7 @@
 /* 21 */
 /***/ function(module, exports) {
 
-	module.exports = "\n  <div class=\"wrap\" _v-70330ff1=\"\">\n    <h1 class=\"welcome\" _v-70330ff1=\"\">Manage your trainings.</h1>\n    <div class=\"form\" _v-70330ff1=\"\">\n      <input type=\"text\" v-model=\"username\" placeholder=\"Username\" _v-70330ff1=\"\">\n      <input type=\"password\" v-model=\"password\" placeholder=\"Password\" _v-70330ff1=\"\">\n      <a v-link=\"'/'\" _v-70330ff1=\"\">Don't have an account yet?</a>\n      <button type=\"button\" v-on:click=\"\" _v-70330ff1=\"\">Login</button>\n    </div>\n    <div class=\"loader\" _v-70330ff1=\"\"></div>\n  </div>\n";
+	module.exports = "\n  <div class=\"wrap\" _v-70330ff1=\"\">\n    <h1 class=\"welcome\" _v-70330ff1=\"\">Manage your trainings.</h1>\n    <div class=\"form\" _v-70330ff1=\"\">\n      <input type=\"text\" v-model=\"username\" placeholder=\"Username\" _v-70330ff1=\"\">\n      <input type=\"password\" v-model=\"password\" placeholder=\"Password\" _v-70330ff1=\"\">\n      <a v-link=\"'/'\" _v-70330ff1=\"\">Don't have an account yet?</a>\n      <button type=\"button\" v-bind:class=\"{ 'disabled': submitted }\" v-on:click=\"login(username, password)\" _v-70330ff1=\"\">Login</button>\n    </div>\n    <div class=\"loader\" _v-70330ff1=\"\"></div>\n  </div>\n";
 
 /***/ },
 /* 22 */
@@ -13664,7 +13709,7 @@
 
 
 	// module
-	exports.push([module.id, "h1[_v-70330ff1] {\n  color: #9c27b0;\n  font-weight: 300;\n  text-align: center; }\n\n.wrap[_v-70330ff1] {\n  position: absolute;\n  width: 100%;\n  height: 200px;\n  top: 50%;\n  -webkit-transform: translate(0%, -50%);\n          transform: translate(0%, -50%); }\n\n.form[_v-70330ff1] {\n  position: relative;\n  max-width: 300px;\n  width: 90%;\n  left: 50%;\n  -webkit-transform: translate(-50%, 0%);\n          transform: translate(-50%, 0%); }\n  .form input[_v-70330ff1] {\n    box-sizing: border-box;\n    width: 100%;\n    border: 1px solid rgba(100, 100, 100, 0.2);\n    font-family: Raleway, sans-serif;\n    font-size: 1.2em;\n    font-weight: 400;\n    padding: 3%;\n    margin: 1%;\n    -webkit-transition: all 0.2s;\n    transition: all 0.2s; }\n    .form input[_v-70330ff1]:focus {\n      outline: none;\n      border-color: rgba(100, 100, 100, 0.4); }\n  .form a[_v-70330ff1] {\n    display: inline-block;\n    width: 70%;\n    font-size: 0.7em;\n    text-align: center;\n    font-weight: 600;\n    float: left;\n    text-decoration: none;\n    padding: 5px 0%; }\n  .form button[_v-70330ff1] {\n    width: 30%;\n    height: 43px;\n    margin-top: 2%;\n    padding: 3%;\n    border: 1px solid rgba(100, 100, 100, 0.2);\n    background-color: rgba(255, 255, 255, 0);\n    text-transform: uppercase;\n    color: #9c27b0;\n    font-weight: 600;\n    cursor: pointer;\n    -webkit-transition: all 0.2s;\n    transition: all 0.2s; }\n    .form button[_v-70330ff1]:hover {\n      border-width: 5px;\n      border-color: rgba(100, 100, 100, 0.4); }\n    .form button[_v-70330ff1]:focus {\n      outline: none; }\n    .form button[_v-70330ff1]:active {\n      border-color: #9c27b0; }\n", ""]);
+	exports.push([module.id, "h1[_v-70330ff1] {\n  color: #9c27b0;\n  font-weight: 300;\n  text-align: center; }\n\n.wrap[_v-70330ff1] {\n  position: absolute;\n  width: 100%;\n  height: 200px;\n  top: 50%;\n  -webkit-transform: translate(0%, -50%);\n          transform: translate(0%, -50%); }\n\n.form[_v-70330ff1] {\n  position: relative;\n  max-width: 300px;\n  width: 90%;\n  left: 50%;\n  -webkit-transform: translate(-50%, 0%);\n          transform: translate(-50%, 0%); }\n  .form input[_v-70330ff1] {\n    box-sizing: border-box;\n    width: 100%;\n    border: 1px solid rgba(100, 100, 100, 0.2);\n    font-family: Raleway, sans-serif;\n    font-size: 1.2em;\n    font-weight: 400;\n    padding: 3%;\n    margin: 1%;\n    -webkit-transition: all 0.2s;\n    transition: all 0.2s; }\n    .form input[_v-70330ff1]:focus {\n      outline: none;\n      border-color: rgba(100, 100, 100, 0.4); }\n  .form a[_v-70330ff1] {\n    display: inline-block;\n    width: 70%;\n    font-size: 0.7em;\n    text-align: center;\n    font-weight: 600;\n    float: left;\n    text-decoration: none;\n    padding: 5px 0%; }\n  .form button[_v-70330ff1] {\n    width: 30%;\n    height: 43px;\n    margin-top: 2%;\n    padding: 3%;\n    border: 1px solid rgba(100, 100, 100, 0.2);\n    background-color: rgba(255, 255, 255, 0);\n    text-transform: uppercase;\n    color: #9c27b0;\n    font-weight: 600;\n    cursor: pointer;\n    -webkit-transition: all 0.2s;\n    transition: all 0.2s; }\n    .form button[_v-70330ff1]:hover {\n      border-width: 5px;\n      border-color: rgba(100, 100, 100, 0.4); }\n    .form button[_v-70330ff1]:focus {\n      outline: none; }\n    .form button[_v-70330ff1]:active {\n      border-color: #9c27b0; }\n    .form button.disabled[_v-70330ff1] {\n      color: #c8c8c8;\n      cursor: default; }\n      .form button.disabled[_v-70330ff1]:hover {\n        border-width: 1px;\n        border-color: rgba(100, 100, 100, 0.2); }\n", ""]);
 
 	// exports
 
@@ -13691,9 +13736,15 @@
 
 	_vue2.default.use(_vuex2.default);
 
-	var state = {};
+	var state = {
+	  token: null
+	};
 
-	var mutations = {};
+	var mutations = {
+	  SET_TOKEN: function SET_TOKEN(state, token) {
+	    state.token = token;
+	  }
+	};
 
 	exports.default = new _vuex2.default.Store({
 	  state: state,
@@ -14539,27 +14590,38 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	exports.default = {
-	  getStoredToken: function getStoredToken() {
+	  getStoredToken: function getStoredToken(_ref) {
+	    var dispatch = _ref.dispatch;
+
 	    // TODO: check if localstorage is usable
 	    // TODO: write unit test
 	    if (localStorage.Token) {
+	      dispatch("SET_TOKEN", localStorage.Token);
 	      return localStorage.Token;
 	    } else {
 	      return null;
 	    }
 	  },
-	  refreshToken: function refreshToken(token) {
+	  refreshToken: function refreshToken(_ref2, token) {
+	    var dispatch = _ref2.dispatch;
+
 	    // TODO: write unit test
 	    return _vue2.default.http.post("/", {}, {
 	      Authorization: token
 	    }).then(function (response) {
 	      var res = response.json();
 	      if (res.success && res.payload && res.payload.token) {
+	        dispatch("SET_TOKEN", res.payload.token);
 	        return res.payload.token;
 	      } else {
 	        return _promise2.default.reject("Invalid token");
 	      }
 	    });
+	  },
+	  login: function login(_ref3, user, pass) {
+	    var dispatch = _ref3.dispatch;
+
+	    console.log("Credentials: " + user + ", " + pass);
 	  }
 	};
 

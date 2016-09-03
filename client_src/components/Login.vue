@@ -64,6 +64,14 @@
       &:active {
         border-color: rgba(156,39,176,1);
       }
+      &.disabled {
+        color: rgba(200,200,200,1);
+        cursor: default;
+        &:hover {
+          border-width: 1px;
+          border-color: rgba(100,100,100,0.2);
+        }
+      }
     }
   }
 </style>
@@ -75,13 +83,31 @@
       <input type="text" v-model="username" placeholder="Username">
       <input type="password" v-model="password" placeholder="Password">
       <a v-link="'/'">Don't have an account yet?</a>
-      <button type="button" v-on:click="">Login</button>
+      <button type="button" v-bind:class="{ 'disabled': submitted }" v-on:click="login(username, password)">Login</button>
     </div>
     <div class="loader"></div>
   </div>
 </template>
 
 <script>
+  import actions from "../actions";
   export default {
+    data () {
+      return {
+        username: null,
+        password: null,
+        submitted: false
+      }
+    },
+    vuex: {
+      actions: {
+        login(store) {
+          if (!this.submitted && this.username && this.password) {
+            this.submitted = true;
+            actions.login(store, this.username, this.password);
+          }
+        }
+      }
+    }
   }
 </script>

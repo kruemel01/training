@@ -2,12 +2,12 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import VueResource from "vue-resource";
 
+import store from "./store";
+
 import Loading from "./components/Loading.vue";
 import Login from "./components/Login.vue";
 import App from "./components/App.vue";
-import {
-  getStoredToken
-} from "./actions";
+import actions from "./actions";
 
 Vue.use(VueRouter);
 Vue.use(VueResource);
@@ -24,15 +24,20 @@ router.map({
   },
   "/login": {
     component: Login
+  },
+  "/dash": {
+    component: Login
   }
 });
 
 router.start(App, "#app");
 
-var storedToken = getStoredToken();
+var storedToken = actions.getStoredToken(store);
 
 if (storedToken) {
-  refreshToken(storedToken).then((newToken))
+  actions.refreshToken(store, storedToken).then((newToken) => {
+    router.go("/dash")
+  });
 } else {
   router.go("/login");
 }
