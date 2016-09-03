@@ -13063,9 +13063,9 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(16)
+	__webpack_require__(19)
 	__vue_script__ = __webpack_require__(9)
-	__vue_template__ = __webpack_require__(18)
+	__vue_template__ = __webpack_require__(21)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
@@ -13073,7 +13073,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
 	  if (!hotAPI.compatible) return
-	  var id = "C:\\Users\\Fabian\\Documents\\programming\\training\\client_src\\components\\Login.vue"
+	  var id = "C:\\Users\\Fabian\\Documents\\Privat\\training\\client_src\\components\\Login.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -13400,25 +13400,33 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	// <style>
-	//   .welcome {
-	//     color: #asdfaf;
+	// <style scoped>
+	//   h1 {
+	//     color: #9C27B0;
+	//     font-weight: 300;
+	//     text-align: center;
+	//   }
+	//   .wrap {
+	//     position: absolute;
+	//     width: 100%;
+	//     height: 200px;
+	//     top: 50%;
+	//     transform: translate(0%, -50%);
 	//   }
 	// </style>
 	//
 	// <template>
-	//   <h1 class="welcome">Manage your trainings.</h1>
-	//   <div class="loader"></div>
+	//   <div class="wrap">
+	//     <h1 class="welcome">Manage your trainings.</h1>
+	//     <form class="" action="index.html" method="post">
+	//       <input type="text" name="username" value="">
+	//     </form>
+	//     <div class="loader"></div>
+	//   </div>
 	// </template>
 	//
 	// <script>
-	exports.default = {
-	  data: function data() {
-	    return {
-	      msg: "Hello."
-	    };
-	  }
-	};
+	exports.default = {};
 	// </script>
 	//
 
@@ -13428,9 +13436,9 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(12)
+	__webpack_require__(16)
 	__vue_script__ = __webpack_require__(14)
-	__vue_template__ = __webpack_require__(15)
+	__vue_template__ = __webpack_require__(18)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
@@ -13438,7 +13446,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
 	  if (!hotAPI.compatible) return
-	  var id = "C:\\Users\\Fabian\\Documents\\programming\\training\\client_src\\components\\App.vue"
+	  var id = "C:\\Users\\Fabian\\Documents\\Privat\\training\\client_src\\components\\App.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -13447,46 +13455,8 @@
 	})()}
 
 /***/ },
-/* 12 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(13);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(8)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-2db4ce4e&file=App.vue&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./App.vue", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-2db4ce4e&file=App.vue&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./App.vue");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 13 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(7)();
-	// imports
-
-
-	// module
-	exports.push([module.id, "\r\n\r\n", ""]);
-
-	// exports
-
-
-/***/ },
+/* 12 */,
+/* 13 */,
 /* 14 */
 /***/ function(module, exports) {
 
@@ -13495,8 +13465,13 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	// <style scoped>
-	//
+	// <style>
+	//   body {
+	//     font-family: Raleway, Helvetica Neue, sans-serif;
+	//     box-sizing: border-box;
+	//     padding: 0px;
+	//     margin: 0px;
+	//   }
 	// </style>
 	//
 	// <template>
@@ -13509,12 +13484,7 @@
 	//
 
 /***/ },
-/* 15 */
-/***/ function(module, exports) {
-
-	module.exports = "\n  <router-view _v-2db4ce4e=\"\"></router-view>\n";
-
-/***/ },
+/* 15 */,
 /* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -13530,8 +13500,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-12cf2e56&file=Login.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Login.vue", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-12cf2e56&file=Login.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Login.vue");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-5a4a5aa9&file=App.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./App.vue", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-5a4a5aa9&file=App.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./App.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -13549,7 +13519,7 @@
 
 
 	// module
-	exports.push([module.id, "\r\n  .welcome {\r\n    color: #asdfaf;\r\n  }\r\n", ""]);
+	exports.push([module.id, "\r\n  body {\r\n    font-family: Raleway, Helvetica Neue, sans-serif;\r\n    box-sizing: border-box;\r\n    padding: 0px;\r\n    margin: 0px;\r\n  }\r\n", ""]);
 
 	// exports
 
@@ -13558,7 +13528,53 @@
 /* 18 */
 /***/ function(module, exports) {
 
-	module.exports = "\r\n  <h1 class=\"welcome\">Manage your trainings.</h1>\r\n  <div class=\"loader\"></div>\r\n";
+	module.exports = "\r\n  <router-view></router-view>\r\n";
+
+/***/ },
+/* 19 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(20);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(8)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-70330ff1&file=Login.vue&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Login.vue", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-70330ff1&file=Login.vue&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./Login.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 20 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(7)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "\r\n  h1[_v-70330ff1] {\r\n    color: #9C27B0;\r\n    font-weight: 300;\r\n    text-align: center;\r\n  }\r\n  .wrap[_v-70330ff1] {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 200px;\r\n    top: 50%;\r\n    -webkit-transform: translate(0%, -50%);\r\n            transform: translate(0%, -50%);\r\n  }\r\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 21 */
+/***/ function(module, exports) {
+
+	module.exports = "\n  <div class=\"wrap\" _v-70330ff1=\"\">\n    <h1 class=\"welcome\" _v-70330ff1=\"\">Manage your trainings.</h1>\n    <form class=\"\" action=\"index.html\" method=\"post\" _v-70330ff1=\"\">\n      <input type=\"text\" name=\"username\" value=\"\" _v-70330ff1=\"\">\n    </form>\n    <div class=\"loader\" _v-70330ff1=\"\"></div>\n  </div>\n";
 
 /***/ }
 /******/ ]);

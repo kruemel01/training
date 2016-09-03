@@ -1,5 +1,10 @@
-<style scoped>
-
+<style>
+  body {
+    font-family: Raleway, Helvetica Neue, sans-serif;
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+  }
 </style>
 
 <template>
